@@ -53,10 +53,10 @@ local Status = Instance.new("TextLabel", Panel)
 Status.Size = UDim2.new(1,-20,0.3,0)
 Status.Position = UDim2.new(0,10,0.65,0)
 Status.BackgroundTransparency = 1
-Status.Text ="by ichiang"
+Status.Text = ""
 Status.Font = Enum.Font.Code
 Status.TextSize = 12
-Status.TextColor3 = Color3.fromRGB(128,255,255)
+Status.TextColor3 = Color3.fromRGB(150,255,255)
 
 -- Button
 local Button = Instance.new("TextButton", Panel)
@@ -104,51 +104,6 @@ FlagBtn.MouseButton1Click:Connect(function()
     Save.Flag = not Save.Flag
     FlagBtn.Text = Save.Flag and "FastFlag: On" or "FastFlag: Off"
     ApplyFlag()
-end)
-
-local TransBtn = Instance.new("TextButton", Settings)
-TransBtn.Size = UDim2.new(1,-20,0,30)
-TransBtn.Position = UDim2.new(0,10,0,60)
-TransBtn.Text = "Invis: Off"
-
-Save.Mode = 1 -- 1 = Off, 2 = On
-
-local function ApplyTransparent()
-    if Save.Mode == 1 then
-        Panel.BackgroundTransparency = 0
-        Title.TextTransparency = 0
-        Status.TextTransparency = 0
-        Stroke.Transparency = 0
-        Button.TextTransparency = 0
-
-        Gear.BackgroundTransparency = 0
-        Gear.TextTransparency = 0
-
-    elseif Save.Mode == 2 then
-        Panel.BackgroundTransparency = 1
-        Title.TextTransparency = 1
-        Status.TextTransparency = 1
-        Stroke.Transparency = 1
-        Button.TextTransparency = 1
-
-        Gear.BackgroundTransparency = 0
-        Gear.TextTransparency = 0
-    end
-
-    Button.BackgroundTransparency = 1
-end
-
-TransBtn.MouseButton1Click:Connect(function()
-    Save.Mode += 1
-    if Save.Mode > 2 then Save.Mode = 1 end
-
-    if Save.Mode == 1 then
-        TransBtn.Text = "Invis: Off"
-    elseif Save.Mode == 2 then
-        TransBtn.Text = "Invis: On"
-    end
-
-    ApplyTransparent()
 end)
 
 -- Drag Panel 
@@ -231,4 +186,4 @@ end)
 
 ApplyFlag()
 
-print("ultrafreeze made by ichiang")
+print("Ultra Lag Switch Made By ichiang")
